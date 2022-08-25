@@ -4,7 +4,7 @@ let buttonColors = ['red','blue','green','yellow']
 let started = 0;
 let level = 0;
 
-//--------KeyPress
+//--------KeyPress-------
 $(document).on('keypress', function(){
 if(!started){
   $('h1').text('Level '+level)
@@ -26,7 +26,7 @@ $('.btn').click(function(event){
   checkAnswer(userClickedPattern.length-1)
 
 })
-//-----------------------------nextSequence
+//-----------------------------nextSequence-----
 function nextSequence(){
   userClickedPattern = [];
   level++
@@ -40,7 +40,7 @@ function nextSequence(){
 
   $('h1').text('Level '+level)
 }
-//----------------------------
+//-------------------playSound----animate-----
 function playSound(name){
   let audio = new Audio('sounds/'+name+'.mp3')
   audio.play()
@@ -52,16 +52,13 @@ function animateClass(name){
   $('#'+name).removeClass('pressed')
   },100)
 }
-//-----------------------------checkAnswer
+//-----------------------------checkAnswer------------
 function checkAnswer(currentLevel){
 
-    //3. Write an if statement inside checkAnswer() to check if the most recent user answer is the same as the game pattern. If so then log "success", otherwise log "wrong".
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
 
-      //4. If the user got the most recent answer right in step 3, then check that they have finished their sequence with another if statement.
       if (userClickedPattern.length === gamePattern.length){
 
-        //5. Call nextSequence() after a 1000 millisecond delay.
         setTimeout(function () {
           nextSequence();
         }, 1000);
@@ -81,7 +78,7 @@ function checkAnswer(currentLevel){
 
     }
   }
-
+// -----------startOver-----------
   function startOver(){
     started = false;
     level = 0;
